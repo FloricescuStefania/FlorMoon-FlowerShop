@@ -2,3 +2,111 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!--  Hero Section -->
+<section class="hero-section">
+    <img class="hero-photo" src="/Images/homePhoto.png" alt="Home Photo">
+    <div class="hero-text">
+        <h1 class="hero-title"> Discover the magic<br>and let each moment <br> blossom with happiness.</h1>
+        <div>
+            <a asp-controller="Store" asp-action="Index" class="btn btn-primary">Order Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Shop Text -->
+<p class="about-shop">
+    Welcome to FlorMoon, where every bloom tells a story. Our passion is bringing beauty, color, and fragrance
+    into your life through carefully curated floral arrangements. From vibrant bouquets for special occasions to elegant
+    designs for everyday moments, we combine creativity with quality to make every floral experience unforgettable.
+    Step into a world of flowers and let us help you celebrate life's precious moments with nature's finest gifts.
+</p>
+
+
+<!-- Products Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center section-title mb-4">DISCOVER OUR CREATIONS</h2>
+        <div class="row g-4">
+
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="arr-card">
+                    <img src="/Images/whiteRoses.png" alt="White Roses">
+                    <div class="arr-card-label">White Roses</div>
+                    <div class="arr-card-btn">
+                        <a asp-controller="Store" asp-action="Index" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="arr-card">
+                    <img src="/Images/pinkTulips.png" alt="Pink Tulips">
+                    <div class="arr-card-label">Pink Tulips</div>
+                    <div class="arr-card-btn">
+                        <a asp-controller="Store" asp-action="Index" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="arr-card">
+                    <img src="/Images/purplePeony.png" alt="Purple Peonies">
+                    <div class="arr-card-label">Purple Peonies</div>
+                    <div class="arr-card-btn">
+                        <a asp-controller="Store" asp-action="Index" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Features / Benefits Section -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fa-solid fa-leaf fa-2x"></i>
+                    </div>
+                    <h3>Fresh Guarantee</h3>
+                    <p>7-day freshness guarantee on every bouquet</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fa-solid fa-truck fa-2x"></i>
+                    </div>
+                    <h3>Same Day Delivery</h3>
+                    <p>Fresh blooms at your door the same day</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fa-solid fa-heart fa-2x"></i>
+                    </div>
+                    <h3>Handcrafted</h3>
+                    <p>Handmade with care, just for you</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Promotional banner linking to the About Us page -->
+<section class="promo-banner position-relative overflow-hidden">
+    <img src="/Images/meetTeam.png" alt="Meet our team" class="promo-img">
+    <div class="promo-overlay d-flex align-items-center justify-content-center">
+        <div class="container text-center text-white">
+            <h2 class="promo-title">From Our Garden to Your Heart.<br>Meet our team.</h2>
+            <a asp-controller="Home" asp-action="About" class="btn btn-primary">About us</a>
+        </div>
+    </div>
+</section>
