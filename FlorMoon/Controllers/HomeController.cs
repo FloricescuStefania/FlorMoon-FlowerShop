@@ -27,6 +27,9 @@ namespace FlorMoon.Controllers
         [Route("Home/Contact")]
         public IActionResult Contact() => View();
 
+        [Route("Home/FAQ")]
+        public IActionResult FAQ() => View();
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -440,3 +440,26 @@ footer {
     line-height: 1.5;
 }
 
+/* ======================= FAQ Page ======================== */
+.accordion-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--dark);
+    display: block;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.accordion-item-custom span {
+    letter-spacing: 0.5px;
+}
+
+.accordion-button {
+    background-color: var(--blush) !important;
+    color: #8c3d47 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
