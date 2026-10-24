@@ -307,7 +307,7 @@ footer {
         border-color: var(--mauve);
     }
 
-    /* 2. When is pressed (Active) */
+    /* When is pressed (Active) */
     .btn-primary:active {
         background-color: var(--mauve) !important;
         border-color: var(--mauve) !important;
@@ -463,3 +463,133 @@ footer {
     background-image: none !important;
 }
 
+/* =================== Store Page  ========================= */
+/* --- Catalog Styling --- */
+.catalog-section {
+    background-color: var(--cream);
+    padding-top: 80px;
+}
+
+.catalog-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: black;
+    font-weight: 400;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    margin-bottom: 2rem;
+}
+
+.product-img-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+    .product-img-wrapper img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+.product-item:hover img {
+    transform: scale(1.05);
+}
+
+.product-name {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.btn-order-outline {
+    display: inline-block;
+    padding: 8px 25px;
+    border: 1px solid #8c3d47;
+    background-color: #8c3d47;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+    .btn-order-outline:hover {
+        background-color: #6b2d37;
+        color: #fff;
+    }
+
+/* --- Button add to cart --- */
+.product-action {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-add-to-cart {
+    display: inline-block;
+    background-color: var(--deep-rose);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+    .btn-add-to-cart:hover {
+        background-color: var(--mauve);
+        color: #fff;
+    }
+
+.product-title-link {
+    color: #000;
+    text-decoration: none;
+}
+
+    .product-title-link:hover {
+        color: var(--deep-rose, #8c3d47); 
+        text-decoration: none;
+    }
+
+/*Style for the + and - buttons */
+.quantity-selector .btn {
+    background-color: var(--soft-pink);
+    border-color: var(--border);
+    color: var(--dark);
+}
+
+    .quantity-selector .btn:hover {
+        background-color: var(--blush);
+        border-color: var(--rose);
+        color: var(--deep-rose);
+    }
+
+.quantity-selector input[type="number"] {
+    background-color: #fff;
+    border: 1px solid var(--border);
+    color: var(--dark);
+    font-weight: 500;
+}

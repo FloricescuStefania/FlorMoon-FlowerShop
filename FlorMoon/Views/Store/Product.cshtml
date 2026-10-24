@@ -1,0 +1,52 @@
+﻿@model FlorMoon.Models.Product
+
+@{
+    ViewData["Title"] = Model.ProductName;
+    var imageName = Model.ImagePath ?? "";
+    if (!imageName.ToLower().EndsWith(".png") && !string.IsNullOrEmpty(imageName)) imageName += ".png";
+    var imageUrl = Url.Content("~/Images/" + imageName);
+}
+
+<section class="py-5 product-details-section">
+    <div class="container">
+        <div class="row g-5 align-items-start">
+            <!-- Product Image -->
+            <div class="col-md-7 product-image-container">
+                <img src="@imageUrl" class="img-fluid" alt="@Model.ProductName" onerror="this.src='/Images/no-image.png';">
+            </div>
+
+            <!-- Right side: Details and Actions -->
+            <div class="col-md-5">
+                <h2 class="product-title mb-2">@Model.ProductName</h2>
+                <p class="mb-3 fs-4 fw-bold">@Model.Price Euro</p>
+
+                <div class="product-action mt-4">
+                    <label class="small fw-bold d-block mb-2 text-uppercase">Quantity</label>
+                    <div class="quantity-selector d-flex align-items-center mb-3">
+                        <button type="button" class="btn border" id="decrease-qty">−</button>
+                        <input type="number" id="product-quantity" class="form-control w-25" value="1" min="1" readonly>
+                        <button type="button" class="btn border" id="increase-qty">+</button>
+                    </div>
+
+                    @if (!User.IsInRole("Admin") && !User.IsInRole("ADMINISTRATOR") && User.Identity?.Name != "admin@flormoon.com")
+                    {
+                        <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="productId" value="@Model.ProductID" />
+                            <input type="hidden" name="quantity" id="hidden-quantity" value="1" />
+                            <button type="submit" class="btn w-100 mb-4 btn-add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </form>
+                    }
+                </div>
+
+                <h6 class="fw-bold text-uppercase description-header">Description</h6>
+                <p class="text-muted">@Model.ProductDescription</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

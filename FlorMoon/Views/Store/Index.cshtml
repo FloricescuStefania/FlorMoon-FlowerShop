@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<FlorMoon.Models.Product>
+
+<div class="container catalog-section mt-5 pt-5" id="catalog-section">
+    <h1 class="catalog-title mb-4">Catalog</h1>
+
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <label class="form-label small text-muted text-uppercase catalog-filters-label">Category</label>
+            <select class="form-select border-0 shadow-sm catalog-select-custom" id="catFilter" onchange="filter()">
+                <option value="">All Flowers</option>
+                @if (ViewBag.Categories != null)
+                {
+                    @foreach (var cat in (IEnumerable<FlorMoon.Models.Category>)ViewBag.Categories)
+                    {
+                        <option value="@cat.CategoryName" selected="@(ViewBag.CurrentCategory == cat.CategoryName ? "selected" : null)">
+                            @cat.CategoryName
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label small text-muted text-uppercase catalog-filters-label">Sort by Price</label>
+            <select class="form-select border-0 shadow-sm catalog-select-custom" id="sortFilter" onchange="filter()">
+                <option value="" selected="@(string.IsNullOrEmpty(ViewBag.CurrentSort) ? "selected" : null)">Default</option>
+                <option value="price_asc" selected="@(ViewBag.CurrentSort == "price_asc" ? "selected" : null)">Low to High</option>
+                <option value="price_desc" selected="@(ViewBag.CurrentSort == "price_desc" ? "selected" : null)">High to Low</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-6 mb-5">
+                <div class="product-item">
+                    <div class="product-img-wrapper product-img-wrapper-custom">
+
+                        <a asp-action="Product" asp-route-id="@product.ProductID" class="product-img-link">
+                            <img src="~/Images/@product.ImagePath"
+                                 alt="@product.ProductName"
+                                 class="product-img-style"
+                                 onerror="this.src='/Images/no-image.png';">
+                        </a>
+
+                    </div>
+
+                    <div class="pt-3">
+                        <a asp-action="Product" asp-route-id="@product.ProductID" class="product-title-link">
+                            <h2 class="product-title-text">@product.ProductName</h2>
+                        </a>
+
+                        <p class="text-muted">@product.Price Euro</p>
+
+                        <a asp-action="Product" asp-route-id="@product.ProductID" class="btn-order-outline text-decoration-none btn-catalog-order">
+                            Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}
