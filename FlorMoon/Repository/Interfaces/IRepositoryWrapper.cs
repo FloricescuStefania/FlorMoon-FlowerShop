@@ -6,6 +6,7 @@ namespace FlorMoon.Repository.Interfaces
     {
         IProductRepository ProductRepository { get; }
         ICategoryRepository CategoryRepository { get; }
+        IUserRepository UserRepository { get; }
         void Save();
     }
 }

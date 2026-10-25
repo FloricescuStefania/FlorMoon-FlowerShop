@@ -7,7 +7,8 @@ namespace FlorMoon.Repository
     {
         private readonly AppDbContext _context;
         private IProductRepository _product;
-        private ICategoryRepository _category; 
+        private ICategoryRepository _category;
+        private IUserRepository _user;
 
         public RepositoryWrapper(AppDbContext context)
         {
@@ -35,7 +36,18 @@ namespace FlorMoon.Repository
                 return _category;
             }
         }
-       
+
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (_user == null)
+                {
+                    _user = new UserRepository(_context);
+                }
+                return _user;
+            }
+        }
         public void Save()
         {
             _context.SaveChanges();
